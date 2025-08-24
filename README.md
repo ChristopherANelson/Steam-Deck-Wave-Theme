@@ -1,4 +1,4 @@
-# Steam-Deck-Wave-Theme
+# Steam Deck Wave Theme
 My personal project to replace the background of the steam deck interface. Inspired by wallpapers provided by Playstation.
 ![20250814115907_1](https://github.com/user-attachments/assets/dfd3efce-8328-4d6a-ade0-942dc24bfb80)
 ![20250814115921_1](https://github.com/user-attachments/assets/aaeca996-e785-4669-8841-08e702baa2cf)
