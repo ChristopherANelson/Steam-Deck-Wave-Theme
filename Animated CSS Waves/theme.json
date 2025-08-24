@@ -1,0 +1,94 @@
+{
+  "name": "Animated CSS Waves",
+  "author": "Christopher Nelson",
+  "manifest_version": 3,
+    "tabs": {
+    "default": [
+      "bigpicture"
+    ]
+  },
+  "inject": {
+    "home.css": ["SP"]
+  },
+  "patches": {
+    
+      "Library": {
+      "type": "checkbox",
+      "default": "No",
+      "values": {
+        "Yes": {
+          "library.css": [
+            "SP"
+          ]
+        },
+        "No": {}
+      }
+    },
+        "Search": {
+      "type": "checkbox",
+      "default": "No",
+      "values": {
+        "Yes": {
+          "search.css": [
+            "SP"
+          ]
+        },
+        "No": {}
+      }
+    },
+    "Theme Color": {
+      "type": "dropdown",
+      "values": {
+        "White": {
+          "colors/white.css": ["SP"]
+        },
+        "Yellow": {
+          "colors/yellow.css": ["SP"]
+        },
+        "Light Green": {
+          "colors/light_green.css": ["SP"]
+        },
+        "Pink": {
+          "colors/pink.css": ["SP"]
+        },
+        "Green": {
+          "colors/green.css": ["SP"]
+        },
+        "Light Purple": {
+          "colors/light_purple.css": ["SP"]
+        },
+        "Light Blue": {
+          "colors/light_blue.css": ["SP"]
+        },
+        "Blue": {
+          "colors/blue.css": ["SP"]
+        },
+        "Purple": {
+          "colors/purple.css": ["SP"]
+        },
+        "Gold": {
+          "colors/gold.css": ["SP"]
+        },
+        "Brown": {
+          "colors/brown.css": ["SP"]
+        },
+        "Red": {
+          "colors/red.css": ["SP"]
+        },
+        
+        
+        "Custom":{}
+      },
+      "components": [
+        {
+          "name": "Color Picker",
+          "type": "color-picker",
+          "on": "Custom",
+          "default": "#000",
+          "css_variable": "main-color",
+          "tabs": ["SP"]
+        }
+      ]
+    }
+  }
+}

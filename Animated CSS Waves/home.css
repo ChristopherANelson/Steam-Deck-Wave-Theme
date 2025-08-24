@@ -1,0 +1,88 @@
+:root {
+  --main-color: #000
+}
+
+.gamepadhomerecentgames_RecentGamesBackgroundContainer_QNkOt {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(270deg, #a8a8a8 0%, #f0f0f0 50%, #cbcbcb 100%),
+              var(--main-color);
+  background-blend-mode: multiply;
+  background-size: 600% 600%;   
+  animation: gradientShift 30s ease infinite;  
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gamepadhomerecentgames_RecentGamesBackgroundContainer_QNkOt > * {
+  display: none;
+}
+
+/* First wave layer */
+.gamepadhomerecentgames_RecentGamesBackgroundContainer_QNkOt::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 6400px;
+  height: 198px;
+  background: transparent url("/themes_custom/Animated CSS Waves/wave5.svg") repeat-x;
+  mix-blend-mode: overlay;
+  top: auto;
+  animation: waveMove2 21s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  filter: blur(0.5px) brightness(0.5); 
+  z-index: 2;
+  pointer-events: none;
+    /* ⬅ doubles the vertical size */
+  transform: scale3d(2,2,1);
+  transform-origin: bottom; /* keep it anchored at the bottom */
+}
+
+/* Second wave layer */
+.gamepadhomerecentgames_RecentGamesBackgroundContainer_QNkOt::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 6400px;
+  height: 198px;
+  background: transparent url("/themes_custom/Animated CSS Waves/wave5.svg") repeat-x;
+  mix-blend-mode: overlay;
+  z-index: 1;
+  top: auto;
+  animation:
+    waveMove 28s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 28s ease -1.25s infinite;
+  opacity: 0.8;
+  filter:blur(1px);
+  z-index: 1;
+  pointer-events: none;
+
+}
+
+@keyframes waveMove {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -3200px;
+  }
+}
+@keyframes waveMove2 {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 3200px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0, 20px, 0) scale3d(2,2,1);
+  }
+  50% {
+    transform: translate3d(0, 0px, 0) scale3d(2,2,1);
+  }
+}

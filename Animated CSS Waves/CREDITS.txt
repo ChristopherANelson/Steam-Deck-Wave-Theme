@@ -1,0 +1,3 @@
+Used the Animated CSS Space Background by plrusek as a template
+Based off of Ted Mcdonald's code https://codepen.io/tedmcdo/pen/PqxKXg
+Used www.psdevwiki.com/ps3/XMB for preset colors

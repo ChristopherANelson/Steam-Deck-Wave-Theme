@@ -1,0 +1,64 @@
+:root { --main-color: #000; }
+
+/* 1) Use the outer Library wrapper as the background host */
+.gamepadlibrary_GamepadLibrary_ZBBhe {
+  position: relative;          /* anchor pseudo elements */
+  z-index: 0;                  /* create a stacking context */
+}
+
+/* Ensure all real UI stays above the decorative layer */
+.gamepadlibrary_GamepadLibrary_ZBBhe > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 2) Full-viewport gradient background (never affects layout) */
+.gamepadlibrary_GamepadLibrary_ZBBhe::before {
+  content: "";
+  position: fixed;             /* detach from inner containers (no clipping) */
+  inset: 0;                    /* cover the viewport */
+  background:
+    linear-gradient(270deg, #a8a8a8 0%, #f0f0f0 50%, #cbcbcb 100%),
+    var(--main-color);
+  background-blend-mode: multiply;
+  background-size: 600% 600%;
+  animation: gradientShift 30s ease infinite;
+  pointer-events: none;
+  z-index: 0;                  /* behind content */
+}
+
+/* 3) Waves fixed at the bottom of the viewport */
+.gamepadlibrary_GamepadLibrary_ZBBhe::after {
+  content: "";
+  position: fixed;             /* ignore inner overflows/heights */
+  left: 0;
+  bottom: 0;
+  width: 6400px;
+  height: 198px;
+  background: transparent url("/themes_custom/Animated CSS Waves/wave5.svg") repeat-x;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+  filter: blur(1px) brightness(0.7);
+  transform: scale3d(2, 2, 1);
+  transform-origin: bottom;
+  animation:
+    waveMove 28s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite,
+    swell    28s ease -1.25s infinite;
+  pointer-events: none;
+  z-index: 0;                  /* behind content */
+}
+
+/* Animations */
+@keyframes waveMove {
+  0%   { margin-left: 0; }
+  100% { margin-left: -3200px; }
+}
+@keyframes swell {
+  0%, 100% { transform: translate3d(0, 20px, 0) scale3d(2, 2, 1); }
+  50%      { transform: translate3d(0, 0, 0)  scale3d(2, 2, 1); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

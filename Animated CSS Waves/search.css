@@ -1,0 +1,80 @@
+:root {
+  --main-color: #000;
+}
+
+/* Keep this element in normal flow (no layout shift) */
+.gamepadsearch_GamepadSearch_P_AlE .gamepadtabbedpage_GamepadTabbedPage_3IBLc {
+  position: relative !important;          /* instead of absolute */
+  inset: auto !important;                 /* cancels inset: 0 */
+  top: auto !important; right: auto !important; bottom: auto !important; left: auto !important;
+  overflow: visible !important;           /* don't clip page content */
+  pointer-events: auto !important;        /* restore clicks */
+  isolation: isolate;                     /* new stacking context so we can layer behind children */
+
+  /* Your animated gradient background (unchanged) */
+  background:
+    linear-gradient(270deg, #a8a8a8 0%, #f0f0f0 50%, #cbcbcb 100%),
+    var(--main-color);
+  background-blend-mode: multiply;
+  background-size: 600% 600%;
+  animation: gradientShift 30s ease infinite;
+}
+
+/* If you previously hid all children, cancel that here */
+.gamepadsearch_GamepadSearch_P_AlE .gamepadtabbedpage_GamepadTabbedPage_3IBLc > * {
+  display: revert !important;             /* un-hide without guessing block/inline */
+}
+
+/* IMPORTANT: attach waves to THIS element, not its descendants
+   (note: no space before ::before / ::after) */
+.gamepadsearch_GamepadSearch_P_AlE .gamepadtabbedpage_GamepadTabbedPage_3IBLc::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 6400px;
+  height: 198px;
+  background: transparent url("/themes_custom/Animated CSS Waves/wave5.svg") repeat-x;
+  mix-blend-mode: overlay;
+  filter: blur(2px) brightness(0.5);
+  animation: waveMove2 21s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: scale3d(2, 2, 1);
+  transform-origin: bottom;
+  pointer-events: none;
+  z-index: -1;                            /* behind ALL content in this container */
+}
+
+.gamepadsearch_GamepadSearch_P_AlE .gamepadtabbedpage_GamepadTabbedPage_3IBLc::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 6400px;
+  height: 198px;
+  background: transparent url("/themes_custom/Animated CSS Waves/wave5.svg") repeat-x;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+  filter: blur(4px);
+  animation:
+    waveMove 28s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 28s ease -1.25s infinite;
+  pointer-events: none;
+  z-index: -1;                            /* also behind content */
+}
+
+/* Your existing keyframes */
+@keyframes waveMove {
+  0%   { margin-left: 0; }
+  100% { margin-left: -3200px; }
+}
+
+@keyframes waveMove2 {
+  0%   { margin-left: 0; }
+  100% { margin-left: 3200px; }
+}
+
+@keyframes swell {
+  0%, 100% { transform: translate3d(0, 20px, 0) scale3d(2, 2, 1); }
+  50%      { transform: translate3d(0, 0px, 0)  scale3d(2, 2, 1); }
+}
+
